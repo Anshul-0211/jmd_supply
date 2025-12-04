@@ -205,7 +205,7 @@ const Header = () => {
             onClick={(e) => handleNavClick(e, '#contact')}
             className="block mt-2 bg-blue-600 text-white text-center px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 text-sm font-medium"
           >
-            Get a Quote
+            Get a Quote.
           </a>
         </div>
       )}
