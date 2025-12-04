@@ -137,5 +137,4 @@ else
     rm nginx-temp.conf 2>/dev/null
     
     exit 1
-fi  exit 1
 fi
