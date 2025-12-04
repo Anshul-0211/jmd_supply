@@ -38,7 +38,7 @@ const Hero = () => {
       setIsTransitioning(true);
       setCurrentSlide((prev) => (prev + 1) % slides.length);
       setTimeout(() => setIsTransitioning(false), 600);
-    }, 7000); // Change slide every 3 seconds
+    }, 5000); // Change slide every 3 seconds
 
     return () => clearInterval(timer);
   }, [currentSlide, slides.length]);
@@ -58,7 +58,7 @@ const Hero = () => {
         setIsTyping(false);
         clearInterval(typeTimer);
       }
-    }, 80); // Typing speed
+    }, 50); // Typing speed
 
     return () => clearInterval(typeTimer);
   }, [currentSlide]);
@@ -78,10 +78,10 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-white overflow-hidden">
-      <div className="h-200 flex flex-col md:flex-row pb-0">
+    <section className="relative bg-white overflow-hidden">
+      <div className="min-h-[600px] md:min-h-screen md:h-screen flex flex-col md:flex-row">
         {/* Left Side - Image Carousel (Hidden on mobile/tablet) */}
-        <div className="hidden md:flex md:w-1/2 relative overflow-hidden bg-white">
+        <div className="hidden md:flex md:w-1/2 relative overflow-hidden bg-white min-h-[500px]">
           {slides.map((slide, index) => (
             <div
               key={index}
@@ -103,11 +103,11 @@ const Hero = () => {
         </div>
 
         {/* Right Side - Text Content */}
-        <div className="w-full md:w-1/2 flex items-center justify-center px-6 md:px-12 lg:px-20 py-12 md:py-0">
+        <div className="w-full md:w-1/2 flex items-center justify-center px-4 sm:px-6 md:px-12 lg:px-20 py-8 md:py-0 min-h-[600px]">
           <div className="max-w-xl w-full">
             {/* Company Logo/Name */}
-            <div className="mb-8">
-              <img src={logo1} alt="Company Logo" className='w-60 h-15' />
+            <div className="mb-6 md:mb-8">
+              <img src={logo1} alt="Company Logo" className='w-48 sm:w-60 h-auto' />
             </div>
 
             {/* Animated Content */}
@@ -117,13 +117,13 @@ const Hero = () => {
               }`}
             >
               {/* Heading with Typewriter Effect */}
-              <h1 className="italic text-3xl text-sky-600 md:text-4xl lg:text-5xl font-bold mb-0 min-h-[120px] md:min-h-[140px]">
+              <h1 className="italic text-2xl sm:text-3xl text-sky-600 md:text-4xl lg:text-5xl font-bold mb-0 min-h-[100px] sm:min-h-[120px] md:min-h-[140px]">
                 {displayedText}
-                <span className={`inline-block w-0.5 h-8 md:h-10 bg-blue-600 ml-1 ${isTyping ? 'animate-pulse' : 'opacity-0'}`}></span>
+                <span className={`inline-block w-0.5 h-6 sm:h-8 md:h-10 bg-blue-600 ml-1 ${isTyping ? 'animate-pulse' : 'opacity-0'}`}></span>
               </h1>
 
               {/* Paragraph */}
-              <p className="text-base md:text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 md:mb-8 leading-relaxed">
                 {slides[currentSlide].paragraph}
               </p>
 
@@ -142,14 +142,14 @@ const Hero = () => {
                     });
                   }
                 }}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold text-lg shadow-lg"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold text-base sm:text-lg shadow-lg w-full sm:w-auto text-center"
               >
                 {slides[currentSlide].buttonText}
               </AnimatedButton>
             </div>
 
             {/* Navigation Dots */}
-            <div className="flex justify-center md:justify-start gap-3 mt-12">
+            <div className="flex justify-center md:justify-start gap-3 mt-8 md:mt-12">
               {slides.map((_, index) => (
                 <button
                   key={index}

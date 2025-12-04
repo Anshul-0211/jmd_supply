@@ -38,10 +38,10 @@ const OurClients = () => {
   ));
 
   return (
-    <section className="bg-gray-50 w-full">
-      <div className="container mx-auto px-4 overflow-hidden ">
+    <section id="clients" className="bg-gray-50 w-full pt-8 pb-12">
+      <div className="container mx-auto px-4 overflow-hidden">
         <AnimatedSection className="text-center mb-8">
-          <h2 className="text-4xl font-bold mt-10 mb-2">Our Major Clients</h2>
+          <h2 className="text-4xl font-bold mb-2">Our Major Clients</h2>
           <div className="w-68 h-1 bg-indigo-600 mx-auto mt-2"></div>
         </AnimatedSection>
 
